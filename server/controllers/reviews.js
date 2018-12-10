@@ -36,5 +36,19 @@ module.exports = {
                 });
             }
         });
+    },
+
+    destroy: function(req, res) {
+        Review.deleteMany({}, function(error) {
+            if (error) {
+                console.log("There was an issue: ", error);
+                res.json(error);
+            } else {
+                let response = {
+                    message: "Success"
+                };
+                res.json(response);
+            }
+        });
     }
 }

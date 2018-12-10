@@ -18,6 +18,11 @@ module.exports = function(app) {
         cakes.create(req, res);
     });
 
+    // Delete all cakes
+    app.delete('/cakes', function(req, res) {
+        cakes.destroy(req, res);
+    });
+
     // Get all the reviews
     app.get('/reviews', function(req, res) {
         reviews.getAll(req, res);
@@ -26,5 +31,10 @@ module.exports = function(app) {
     // Create new review for one cake with specific id
     app.post('/cakes/:id', function(req, res) {
         reviews.createReviewForCake(req, res);
+    });
+
+    // Delete all reviews
+    app.delete('/reviews', function(req, res) {
+        reviews.destroy(req, res);
     });
 }

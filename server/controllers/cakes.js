@@ -44,6 +44,21 @@ module.exports = {
                     message: "Success",
                     cake: new_cake
                 };
+                res.json(response);
+            }
+        });
+    },
+
+    destroy: function(req, res) {
+        Cake.deleteMany({}, function(error) {
+            if (error) {
+                console.log("There was an issue: ", error);
+                res.json(error);
+            } else {
+                let response = {
+                    message: "Success"
+                };
+                res.json(response);
             }
         });
     }

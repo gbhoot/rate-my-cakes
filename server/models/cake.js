@@ -4,9 +4,8 @@ var mongoose = require('../config/mongoose.js'),
 
 var CakeSchema = new mongoose.Schema({
     baker: {type: String, required: true, 
-        validate: [validators.isAlpha(), validators.isLength(3)]},
-    img_url: {type: String, required: true, 
-        validate: [validators.isURL()]},
+        validate: [validators.isLength(3)]},
+    img_url: {type: String, required: true},
     reviews: [ReviewSchema],
 },{timestamps: true});
 

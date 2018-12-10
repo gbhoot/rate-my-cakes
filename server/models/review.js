@@ -3,9 +3,9 @@ var mongoose = require('../config/mongoose.js'),
 
 var ReviewSchema = new mongoose.Schema({
     comment: {type: String, required: true,
-        validate: [validators.isAlphanumeric(), validators.isLength(5)]},
+        validate: [validators.isLength(5)]},
     rating: {type: Number, required: true, min: 0, max: 5,
-        validate: [validators.isNumeric(), ]}
+        validate: [validators.isNumeric()]}
 },{timestamps: true});
 
 var Reviews = mongoose.model('Review', ReviewSchema);
